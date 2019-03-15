@@ -1,0 +1,10 @@
+sudo: required
+services:
+    - docker
+    
+before_install:
+    - docker build -t anandpoddar/docker-react -f Dockerfile.dev .
+    
+script:
+    - docker run anandpoddar/docker-react npm run test -- --coverage
+    
